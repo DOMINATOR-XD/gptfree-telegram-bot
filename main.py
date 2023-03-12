@@ -1,4 +1,7 @@
 from telegram import Update
+from keep_alive import keep_alive
+
+keep_alive()
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 from telegram.error import BadRequest
 from telegram.constants import ChatAction
@@ -43,7 +46,7 @@ def scrape_website(url: str):
 async def new_chat(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     db[str(user.id)] = []
-    await update.effective_chat.send_message('[*] New conversation started')
+    await update.effective_chat.send_message('[*] New conversation started For More Updates Join @dominator_bots')
 
 async def read(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await send_typing(update, context)
